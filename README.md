@@ -7,8 +7,6 @@
 [![PLATFORM](https://img.shields.io/badge/PLATFORM-WINDOWS-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://microsoft.com/windows)
 [![DEPENDENCIES](https://img.shields.io/badge/DEPENDENCIES-ZERO%20EXTERNAL-success?style=for-the-badge)](#technical-architecture--pipeline)
 [![ALGORITHM](https://img.shields.io/badge/CV%20PIPELINE-OTSU%20%2B%20BFS%20CCA-blueviolet?style=for-the-badge)](#how-this-program-works)
-[![OUTPUT](https://img.shields.io/badge/ACCURACY-100%25%20MATCH-brightgreen?style=for-the-badge)](#counting-results--verification)
-
 ---
 
 ## Table of Contents
