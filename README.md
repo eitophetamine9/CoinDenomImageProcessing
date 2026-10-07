@@ -58,11 +58,11 @@ The system outputs a high-resolution visualization (`output_annotated.jpg`) cont
 
 ![Annotated Coin Classification Output](output_annotated.jpg)
 
-- 🔴 **Red Ring + `5¢` Badge**: 5 Sentimo (Features center hole)
-- 🔵 **Blue Ring + `10¢` Badge**: 10 Sentimo
-- 🟢 **Green Ring + `25¢` Badge**: 25 Sentimo
-- 🟡 **Yellow Ring + `1₱` Badge**: 1 Piso
-- 🟣 **Purple Ring + `5₱` Badge**: 5 Piso
+- 🔴 **Red Ring + `5¢` Badge**: 5 Centavos (Features center hole)
+- 🔵 **Blue Ring + `10¢` Badge**: 10 Centavos
+- 🟢 **Green Ring + `25¢` Badge**: 25 Centavos
+- 🟡 **Yellow Ring + `1₱` Badge**: 1 Peso
+- 🟣 **Purple Ring + `5₱` Badge**: 5 Peso
 
 ---
 
@@ -97,7 +97,7 @@ $$\sigma_B^2(t) = \omega_0(t) \cdot \omega_1(t) \cdot \left(\mu_0(t) - \mu_1(t)\
 For the benchmark image, Otsu automatically computed $T^* = 154$, creating an optimal binary mask separating dark metal coins from the light paper surface.
 
 ### 3. External Boundary Flood-Fill & Cavity Segmentation
-The Philippine 5-Sentimo coin possesses an interior central hole. Standard binarization causes the light hole to be misidentified as background, creating an annular ring with hollow pixels.
+The Philippine 5 Centavos coin possesses an interior central hole. Standard binarization causes the light hole to be misidentified as background, creating an annular ring with hollow pixels.
 - The algorithm executes a queue-driven flood-fill exclusively starting from the **outer four borders** of the image.
 - Background pixels connected to the image periphery are designated as `isExternalBackground = true`.
 - Any background pixel unreachable from the border is an enclosed internal hole.
@@ -116,20 +116,20 @@ For every segmented component, the algorithm computes:
 
 ### 6. Physical Scale Calibration & Classification
 Philippine coins minted under the Bangko Sentral ng Pilipinas (BSP) series maintain strict standardized physical diameters:
-- **5 Sentimo**: 15.5 mm (with 4 mm central hole)
-- **10 Sentimo**: 17.0 mm
-- **25 Sentimo**: 20.0 mm
-- **1 Piso**: 24.0 mm
-- **5 Piso**: 27.0 mm
+- **5 Centavos**: 15.5 mm (with 4 mm central hole)
+- **10 Centavos**: 17.0 mm
+- **25 Centavos**: 20.0 mm
+- **1 Peso**: 24.0 mm
+- **5 Peso**: 27.0 mm
 
 At the benchmark image's optical magnification ($\approx 3.75\text{ pixels per millimeter}$), the measured coin areas split into distinct, non-overlapping clusters:
 
 | Denomination | Physical Diameter | Scaled Pixel Radius | Measured Area Interval | Decision Boundary |
 | :--- | :---: | :---: | :---: | :---: |
-| **5 Cent** | 15.5 mm | $\approx 29.1\text{ px}$ | $2,586 - 2,722\text{ px}$ | $A < 2,900$ |
-| **10 Cent** | 17.0 mm | $\approx 31.8\text{ px}$ | $3,113 - 3,227\text{ px}$ | $2,900 \le A < 3,750$ |
-| **25 Cent** | 20.0 mm | $\approx 37.5\text{ px}$ | $4,338 - 4,487\text{ px}$ | $3,750 \le A < 5,300$ |
-| **1 Piso** | 24.0 mm | $\approx 44.4\text{ px}$ | $6,132 - 6,247\text{ px}$ | $5,300 \le A < 7,000$ |
+| **5 Centavos** | 15.5 mm | $\approx 29.1\text{ px}$ | $2,586 - 2,722\text{ px}$ | $A < 2,900$ |
+| **10 Centavos** | 17.0 mm | $\approx 31.8\text{ px}$ | $3,113 - 3,227\text{ px}$ | $2,900 \le A < 3,750$ |
+| **25 Centavos** | 20.0 mm | $\approx 37.5\text{ px}$ | $4,338 - 4,487\text{ px}$ | $3,750 \le A < 5,300$ |
+| **1 Peso** | 24.0 mm | $\approx 44.4\text{ px}$ | $6,132 - 6,247\text{ px}$ | $5,300 \le A < 7,000$ |
 | **5 Peso** | 27.0 mm | $\approx 49.8\text{ px}$ | $7,745 - 7,880\text{ px}$ | $A \ge 7,000$ |
 
 ---
