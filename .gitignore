@@ -1,0 +1,29 @@
+## Visual Studio and .NET Build Artifacts
+[Bb]in/
+[Oo]bj/
+publish/
+publish-standalone/
+publish-trimmed/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code & IDEs
+.vscode/
+.vs/
+.idea/
+
+# Dotnet crash dumps & symbols
+*.db
+*.opendb
+*.crash
+*.pdb
+
+# Allow the distributable executable and output preview
+!CoinCounter.exe
+!output_annotated.jpg
+!GetImage.jpeg
